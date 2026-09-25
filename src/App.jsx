@@ -22,6 +22,13 @@ function App() {
     setDraft("");
   }
 
+  function handleRemove(textToRemove) {
+  const kvar = todos.filter(function (todo) {
+    return todo !== textToRemove;
+  });
+  setTodos(kvar);
+}
+
   return (
     <>
       <main>
@@ -35,7 +42,7 @@ function App() {
         <div className="card">
           <ul>
             {todos.map((todo) => (
-              <li >{todo}</li>
+              <li >{todo}<button type="button" onClick={function () { handleRemove(todo); }}>Ta bort</button></li>
                 
             ))}
           </ul>
